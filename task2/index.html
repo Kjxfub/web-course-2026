@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kss Workshop | Мастерская визуального искусства</title>
+    <title>WorKSShop | Мастерская визуального искусства</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
 
         <!-- Шапка -->
         <header class="header">
-            <div class="logo">Kss Workshop</div>
+            <div class="logo">WorKSShop</div>
             <nav class="nav">
                 <div class="hamburger">
                     <span></span>
@@ -25,6 +25,7 @@
                 </div>
                 <ul class="nav-links">
                     <li><a href="#hero">Главная</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
                     <li><a href="#styles">Стили</a></li>
                     <li><a href="#constructor">Конструктор</a></li>
                     <li><a href="#contact">Контакты</a></li>
@@ -32,7 +33,7 @@
             </nav>
         </header>
 
-        <!-- Герой-секция с примером работы -->
+        <!-- Герой-секция с первой картиной (шахматы) -->
         <section id="hero" class="hero">
             <div class="hero-content">
                 <span class="badge">🎨 Реализация любых идей</span>
@@ -43,15 +44,28 @@
                     <a href="#contact" class="btn btn-outline">Обсудить идею</a>
                 </div>
             </div>
-            <!-- Пример недавней картины -->
+            <!-- Первая работа: Шахматы -->
             <div class="hero-artwork-preview">
                 <div class="artwork-frame">
-                    <div class="artwork-mockup-img">
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v8m-4-4h8"/></svg>
-                        <span>Ваш сюжет здесь</span>
-                    </div>
+                    <img src="art-chess.jpg" alt="Графика: Партия в шахматы" class="real-artwork-img">
                 </div>
-                <span class="artwork-caption">Пример недавней работы в смешанной технике</span>
+                <span class="artwork-caption">Детализированный сюжет / Графика</span>
+            </div>
+        </section>
+
+        <!-- Блок галереи со второй картиной (леопард) -->
+        <section id="gallery" class="gallery-section">
+            <h2 class="section-title">Избранные работы</h2>
+            <p class="section-desc">Живые фактуры, контрасты и авторское видение цвета</p>
+            <div class="gallery-showcase">
+                <div class="showcase-img-wrap">
+                    <img src="art-leopard.jpg" alt="Живопись: Леопард" class="real-artwork-img">
+                </div>
+                <div class="showcase-info">
+                    <h3>Динамика цвета и фактуры</h3>
+                    <p>Пример работы с акрилом и объемными деталями. Сочетание хищной экспрессии, глубоких бордовых и теплых охристых оттенков создает неповторимую атмосферу в интерьере.</p>
+                    <a href="#constructor" class="btn btn-submit" style="width: auto; display: inline-flex;">Заказать подобную работу</a>
+                </div>
             </div>
         </section>
 
@@ -98,7 +112,7 @@
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                     </div>
                     <h3 class="card-title">Стилизация</h3>
-                    <p class="card-text">Превращаем искусство из ваших личных идей, историй и глубоких чувств.</p>
+                    <p class="card-text">Делаем искусство из ваших идей, историй и глубоких чувств.</p>
                 </article>
 
                 <article class="card">
@@ -120,7 +134,7 @@
             </div>
         </section>
 
-        <!-- Интерактивный конструктор выбора материала и формата -->
+        <!-- Интерактивный конструктор проекта -->
         <section id="constructor" class="constructor-section">
             <h2 class="section-title">Конструктор проекта</h2>
             <p class="section-desc">Подберите материал и размер под вашу задумку</p>
@@ -228,7 +242,7 @@
 
         <!-- Подвал -->
         <footer class="footer">
-            <p>&copy; 2026 Kss Workshop. Все права защищены.</p>
+            <p>&copy; 2026 WorKSShop. Все права защищены.</p>
         </footer>
 
     </div>
