@@ -1,6 +1,5 @@
 /* ==========================================================================
    1. БАЗОВЫЕ СТИЛИ (MOBILE FIRST) — WorKSShop
-   Насыщенная бордово-пудровая палитра и яркие акценты
    ========================================================================== */
 
 * {
@@ -13,7 +12,7 @@ body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
     color: #2b1619;
-    background-color: #f6ebef; /* Сочный пудровый фон */
+    background-color: #f6ebef;
     position: relative;
     overflow-x: hidden;
 }
@@ -60,7 +59,14 @@ body {
     margin: 0 auto;
 }
 
-/* Шапка */
+/* ==========================================================================
+   2. ШАПКА И КЛИКАБЕЛЬНОЕ МЕНЮ (CSS-ONLY)
+   ========================================================================== */
+
+.menu-toggle {
+    display: none; /* Скрываем невидимый чекбокс */
+}
+
 .header {
     grid-area: header;
     background-color: rgba(255, 255, 255, 0.9);
@@ -86,17 +92,18 @@ body {
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
+    padding: 5px;
 }
 
 .hamburger span {
     width: 25px;
-    height: 2px;
+    height: 2.5px;
     background-color: #6b1420;
     border-radius: 2px;
+    transition: all 0.3s ease;
 }
 
 .nav-links {
-    display: none;
     list-style: none;
     gap: 22px;
 }
@@ -111,6 +118,38 @@ body {
 .nav-links a:hover {
     color: #6b1420;
 }
+
+/* Выпадающее меню при клике по гамбургеру на мобилках */
+@media (max-width: 767px) {
+    .nav {
+        position: relative;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 45px;
+        right: 0;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(107, 20, 32, 0.15);
+        border: 1px solid #ebd3d7;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 100;
+        min-width: 180px;
+    }
+
+    /* Когда чекбокс активен — показываем список ссылок */
+    .menu-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+}
+
+/* ==========================================================================
+   3. ОСНОВНЫЕ СЕКЦИИ (HERO, GALLERY, STYLES, CONSTRUCTOR, CONTACT)
+   ========================================================================== */
 
 /* Герой-секция */
 .hero {
@@ -163,7 +202,7 @@ body {
     margin-top: 5px;
 }
 
-/* Оформление первой картины в герое */
+/* Первая картина (Шахматы) */
 .hero-artwork-preview {
     display: flex;
     flex-direction: column;
@@ -238,7 +277,7 @@ body {
     transform: translateY(-3px);
 }
 
-/* Секция галереи / витрины (Вторая картина) */
+/* Секция галереи (Вторая картина — Леопард) */
 .gallery-section {
     grid-area: gallery;
     background-color: #ffffff;
@@ -316,7 +355,6 @@ body {
     gap: 20px;
 }
 
-/* Карточки с мощным эффектом поднятия */
 .card {
     background-color: #ffffff;
     padding: 24px;
@@ -495,7 +533,6 @@ body {
     background-color: #4a0e16;
 }
 
-/* Подвал */
 .footer {
     grid-area: footer;
     text-align: center;
@@ -504,10 +541,11 @@ body {
     font-size: 0.9rem;
 }
 
-
 /* ==========================================================================
-   2. ПЛАНШЕТЫ (min-width: 768px)
+   4. АДАПТИВНОСТЬ (МЕДИАЗАПРОСЫ)
    ========================================================================== */
+
+/* Планшеты (от 768px) */
 @media (min-width: 768px) {
     .page-grid {
         padding: 40px 20px;
@@ -515,11 +553,17 @@ body {
     }
 
     .hamburger {
-        display: none;
+        display: none; /* Прячем полоски на ПК */
     }
 
     .nav-links {
-        display: flex;
+        display: flex !important; /* Показываем обычную строку с меню */
+        position: static;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+        background-color: transparent;
+        flex-direction: row;
     }
 
     .hero {
@@ -565,10 +609,7 @@ body {
     }
 }
 
-
-/* ==========================================================================
-   3. ДЕСКТОП (min-width: 1200px)
-   ========================================================================== */
+/* Десктоп (от 1200px) */
 @media (min-width: 1200px) {
     .hero-title {
         font-size: 2.3rem;

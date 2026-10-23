@@ -15,14 +15,21 @@
     <div class="page-grid">
 
         <!-- Шапка -->
+        <!-- Шапка с кликабельным гамбургером -->
         <header class="header">
             <div class="logo">WorKSShop</div>
             <nav class="nav">
-                <div class="hamburger">
+                <!-- Скрытый переключатель для клика -->
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                
+                <!-- Иконка гамбургера -->
+                <label for="menu-toggle" class="hamburger">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </label>
+
+                <!-- Ссылки меню -->
                 <ul class="nav-links">
                     <li><a href="#hero">Главная</a></li>
                     <li><a href="#gallery">Галерея</a></li>
@@ -32,7 +39,6 @@
                 </ul>
             </nav>
         </header>
-
         <!-- Герой-секция с первой картиной (шахматы) -->
         <section id="hero" class="hero">
             <div class="hero-content">
