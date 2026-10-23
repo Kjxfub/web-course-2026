@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Арт-мастерская | Живопись и минимализм</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Главная структура страницы на CSS Grid -->
+    <div class="page-grid">
+
+        <!-- Шапка -->
+        <header class="header">
+            <div class="logo">KseniaArt</div>
+            <nav class="nav">
+                <!-- Мобильный гамбургер (без JS, чисто по CSS) -->
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <!-- Навигационные ссылки -->
+                <ul class="nav-links">
+                    <li><a href="#hero">Главная</a></li>
+                    <li><a href="#styles">Стили</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Герой-секция -->
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Искусство в деталях и цвете</h1>
+                <p class="hero-subtitle">Минимализм, современные направления живописи и глубокая эстетика бордовых оттенков на холсте.</p>
+                <a href="#contact" class="btn btn-primary">Заказать картину</a>
+            </div>
+        </section>
+
+        <!-- Секция стилей (карточки) -->
+        <section id="styles" class="styles-section">
+            <h2 class="section-title">Стили и направления</h2>
+            <div class="styles-grid">
+                
+                <article class="card">
+                    <div class="card-icon">
+                        <!-- Минималистичная SVG-иконка кисти/линий -->
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.5 7.5"/></svg>
+                    </div>
+                    <h3 class="card-title">Минимализм</h3>
+                    <p class="card-text">Чистота линий, воздух на холсте, монохромные основы и утонченные бордовые акценты.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">
+                        <!-- Минималистичная SVG-иконка круга/абстракции -->
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><path d="M2 12h20"/></svg>
+                    </div>
+                    <h3 class="card-title">Абстракция</h3>
+                    <p class="card-text">Игра фактур и эмоций, переходы от мягких пудровых оттенков до глубокого винного марсала.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">
+                        <!-- Минималистичная SVG-иконка контура/лайн-арта -->
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                    </div>
+                    <h3 class="card-title">Лайн-арт</h3>
+                    <p class="card-text">Графичные контуры, изящные силуэты и лаконичная выразительность в каждом штрихе.</p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Форма обратной связи -->
+        <section id="contact" class="contact">
+            <h2 class="section-title">Связаться со мной</h2>
+            <form class="contact-form" action="#" method="post" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="name">Имя</label>
+                    <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Сообщение</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Опишите вашу идею или желаемый стиль картины..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-submit">Отправить заявку</button>
+            </form>
+        </section>
+
+        <!-- Подвал -->
+        <footer class="footer">
+            <p>&copy; 2026 KseniaArt. Все права защищены.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
