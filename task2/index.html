@@ -3,92 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Арт-мастерская | Живопись и минимализм</title>
+    <title>Kss Workshop | Мастерская визуального искусства</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Главная структура страницы на CSS Grid -->
+    <!-- Декоративные арт-акценты на фоне -->
+    <div class="bg-art-shape shape-1"></div>
+    <div class="bg-art-shape shape-2"></div>
+
     <div class="page-grid">
 
         <!-- Шапка -->
         <header class="header">
-            <div class="logo">KseniaArt</div>
+            <div class="logo">Kss Workshop</div>
             <nav class="nav">
-                <!-- Мобильный гамбургер (без JS, чисто по CSS) -->
                 <div class="hamburger">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-                <!-- Навигационные ссылки -->
                 <ul class="nav-links">
                     <li><a href="#hero">Главная</a></li>
                     <li><a href="#styles">Стили</a></li>
+                    <li><a href="#constructor">Конструктор</a></li>
                     <li><a href="#contact">Контакты</a></li>
                 </ul>
             </nav>
         </header>
 
-        <!-- Герой-секция -->
+        <!-- Герой-секция с примером работы -->
         <section id="hero" class="hero">
             <div class="hero-content">
-                <h1 class="hero-title">Искусство в деталях и цвете</h1>
-                <p class="hero-subtitle">Минимализм, современные направления живописи и глубокая эстетика бордовых оттенков на холсте.</p>
-                <a href="#contact" class="btn btn-primary">Заказать картину</a>
+                <span class="badge">🎨 Реализация любых идей</span>
+                <h1 class="hero-title">Воплощаю ваши мысли, чувства и сюжеты на холсте</h1>
+                <p class="hero-subtitle">Создаем искусство без рамок: от тонкой графики и портретов до масштабной живописи. Полное воплощение вашей задумки.</p>
+                <div class="hero-buttons">
+                    <a href="#constructor" class="btn btn-primary">Собрать свой проект</a>
+                    <a href="#contact" class="btn btn-outline">Обсудить идею</a>
+                </div>
+            </div>
+            <!-- Пример недавней картины -->
+            <div class="hero-artwork-preview">
+                <div class="artwork-frame">
+                    <div class="artwork-mockup-img">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v8m-4-4h8"/></svg>
+                        <span>Ваш сюжет здесь</span>
+                    </div>
+                </div>
+                <span class="artwork-caption">Пример недавней работы в смешанной технике</span>
             </div>
         </section>
 
-        <!-- Секция стилей (карточки) -->
+        <!-- Секция стилей и направлений (7 штук) -->
         <section id="styles" class="styles-section">
             <h2 class="section-title">Стили и направления</h2>
+            <p class="section-desc">Помогаем выбрать идеальное визуальное воплощение для вашей задумки</p>
             <div class="styles-grid">
                 
                 <article class="card">
                     <div class="card-icon">
-                        <!-- Минималистичная SVG-иконка кисти/линий -->
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.5 7.5"/></svg>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
                     </div>
                     <h3 class="card-title">Минимализм</h3>
-                    <p class="card-text">Чистота линий, воздух на холсте, монохромные основы и утонченные бордовые акценты.</p>
+                    <p class="card-text">Чистота линий, воздух на холсте и глубокие смысловые акценты.</p>
                 </article>
 
                 <article class="card">
                     <div class="card-icon">
-                        <!-- Минималистичная SVG-иконка круга/абстракции -->
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><path d="M2 12h20"/></svg>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
                     </div>
                     <h3 class="card-title">Абстракция</h3>
-                    <p class="card-text">Игра фактур и эмоций, переходы от мягких пудровых оттенков до глубокого винного марсала.</p>
+                    <p class="card-text">Игра фактур, эмоций и переходы от мягких пудровых до насыщенных винных тонов.</p>
                 </article>
 
                 <article class="card">
                     <div class="card-icon">
-                        <!-- Минималистичная SVG-иконка контура/лайн-арта -->
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
                     </div>
-                    <h3 class="card-title">Лайн-арт</h3>
-                    <p class="card-text">Графичные контуры, изящные силуэты и лаконичная выразительность в каждом штрихе.</p>
+                    <h3 class="card-title">Графика</h3>
+                    <p class="card-text">Выразительные штрихи, контраст и детализированная проработка.</p>
                 </article>
 
+                <article class="card">
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                    </div>
+                    <h3 class="card-title">Адаптивный дизайн</h3>
+                    <p class="card-text">Интерьерные картины, созданные специально под атмосферу вашего пространства.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h3 class="card-title">Стилизация</h3>
+                    <p class="card-text">Превращаем искусство из ваших личных идей, историй и глубоких чувств.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 1010 10H12V2z"/><path d="M12 12L2.5 14.5"/></svg>
+                    </div>
+                    <h3 class="card-title">Портреты</h3>
+                    <p class="card-text">Живые портреты, передающие характер, харизму и внутренний мир.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                    </div>
+                    <h3 class="card-title">Живопись</h3>
+                    <p class="card-text">Полноценные живописные полотна маслом и акрилом с богатой текстурой.</p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Интерактивный конструктор выбора материала и формата -->
+        <section id="constructor" class="constructor-section">
+            <h2 class="section-title">Конструктор проекта</h2>
+            <p class="section-desc">Подберите материал и размер под вашу задумку</p>
+            
+            <div class="constructor-grid">
+                <!-- Выбор материала -->
+                <div class="constructor-box">
+                    <h3 class="box-subtitle">1. Выберите материал</h3>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="material" checked>
+                            <span class="option-content">
+                                <span class="opt-title">Карандаш</span>
+                                <span class="opt-desc">Ч/Б графика, тонкие переходы</span>
+                            </span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="material">
+                            <span class="option-content">
+                                <span class="opt-title">Уголь</span>
+                                <span class="opt-desc">Глубокий Ч/Б контраст, экспрессия</span>
+                            </span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="material">
+                            <span class="option-content">
+                                <span class="opt-title">Акрил</span>
+                                <span class="opt-desc">Цвет, яркие фактуры, динамика</span>
+                            </span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="material">
+                            <span class="option-content">
+                                <span class="opt-title">Масло</span>
+                                <span class="opt-desc">Цвет, благородная классика, объем</span>
+                            </span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="material">
+                            <span class="option-content">
+                                <span class="opt-title">Смешанная техника</span>
+                                <span class="opt-desc">Для уникальных авторских задумок</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Выбор формата / размера -->
+                <div class="constructor-box">
+                    <h3 class="box-subtitle">2. Выберите формат / размер холста</h3>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="size" checked>
+                            <span class="option-content">
+                                <span class="opt-title">Компакт (А4 / 21×30)</span>
+                                <span class="opt-desc">Для уютных графических работ</span>
+                            </span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="size">
+                            <span class="option-content">
+                                <span class="opt-title">Стандарт (А3 / 30×40)</span>
+                                <span class="opt-desc">Универсальный размер для портретов</span>
+                            </span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="size">
+                            <span class="option-content">
+                                <span class="opt-title">Интерьерный (50×70)</span>
+                                <span class="opt-desc">Выразительный акцент в комнате</span>
+                            </span>
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="size">
+                            <span class="option-content">
+                                <span class="opt-title">Индивидуальный размер</span>
+                                <span class="opt-desc">Под ваш личный проект и габариты</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Форма обратной связи -->
         <section id="contact" class="contact">
-            <h2 class="section-title">Связаться со мной</h2>
+            <h2 class="section-title">Обсудить ваш заказ</h2>
+            <p class="section-desc">Заполните форму, и мы свяжемся для реализации вашей идеи</p>
             <form class="contact-form" action="#" method="post" onsubmit="return false;">
                 <div class="form-group">
-                    <label for="name">Имя</label>
-                    <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                    <label for="name">Ваше имя</label>
+                    <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                    <label for="email">Email / Telegram</label>
+                    <input type="text" id="email" name="email" placeholder="name@example.com или @username" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">Сообщение</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Опишите вашу идею или желаемый стиль картины..." required></textarea>
+                    <label for="message">Описание идеи и пожелания</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Расскажите о вашей задумке, сюжете или деталях..." required></textarea>
                 </div>
                 <button type="submit" class="btn btn-submit">Отправить заявку</button>
             </form>
@@ -96,7 +228,7 @@
 
         <!-- Подвал -->
         <footer class="footer">
-            <p>&copy; 2026 KseniaArt. Все права защищены.</p>
+            <p>&copy; 2026 Kss Workshop. Все права защищены.</p>
         </footer>
 
     </div>
