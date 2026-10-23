@@ -1,0 +1,317 @@
+/* ==========================================================================
+   1. БАЗОВЫЕ СТИЛИ (MOBILE FIRST — до 768px)
+   Бордово-пудровая гамма и минимализм
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: #2d1e21; /* глубокий темный с бордовым подтоном */
+    background-color: #fcf6f7; /* нежный светлый фон с легким бордовым подтоном */
+}
+
+/* Крупная семантическая сетка страницы через CSS Grid */
+.page-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "header"
+        "hero"
+        "styles"
+        "contact"
+        "footer";
+    gap: 25px;
+    padding: 15px;
+}
+
+/* Шапка */
+.header {
+    grid-area: header;
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(88, 17, 26, 0.04);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #58111a; /* насыщенный темно-бордовый акцент */
+    letter-spacing: 0.5px;
+}
+
+/* Гамбургер для мобильных */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 2px;
+    background-color: #58111a;
+    border-radius: 2px;
+}
+
+/* Ссылки меню скрыты на мобилках до планшетов */
+.nav-links {
+    display: none;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #6b4c52;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #58111a;
+}
+
+/* Герой-секция */
+.hero {
+    grid-area: hero;
+    background: linear-gradient(135deg, #58111a, #8b263e); /* градиент в темных бордовых тонах */
+    color: #ffffff;
+    padding: 45px 20px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.hero-title {
+    font-size: 1.7rem;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+    max-width: 500px;
+}
+
+/* Кнопки и плавные переходы (Transition) */
+.btn {
+    display: inline-block;
+    min-height: 44px; /* Touch-friendly размер по ТЗ */
+    min-width: 44px;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease; /* плавный переход */
+}
+
+.btn-primary {
+    background-color: #ffffff;
+    color: #58111a;
+}
+
+.btn-primary:hover {
+    background-color: #f7ebeb;
+    transform: translateY(-2px);
+}
+
+/* Секция стилей */
+.styles-section {
+    grid-area: styles;
+}
+
+.section-title {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #58111a;
+    font-weight: 600;
+}
+
+.styles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+/* Карточки с эффектом при наведении (scale и поднятие) */
+.card {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(88, 17, 26, 0.04);
+    border: 1px solid #f2e3e5;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Требование ТЗ на плавный переход */
+}
+
+.card:hover {
+    transform: scale(1.02); /* увеличение при наведении */
+    box-shadow: 0 10px 20px rgba(88, 17, 26, 0.08);
+}
+
+.card-icon {
+    color: #8b263e; /* бордовая иконка */
+    display: flex;
+    align-items: center;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    color: #2d1e21;
+}
+
+.card-text {
+    color: #73595e;
+    font-size: 0.95rem;
+}
+
+/* Форма обратной связи */
+.contact {
+    grid-area: contact;
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(88, 17, 26, 0.04);
+    border: 1px solid #f2e3e5;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #4a3237;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    min-height: 44px; /* Touch-friendly размер */
+    padding: 10px 14px;
+    border: 1px solid #d9c2c5;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    background-color: #fffdfd;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Состояния :focus и :hover по ТЗ */
+.form-group input:hover,
+.form-group textarea:hover {
+    border-color: #8b263e;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #58111a;
+    box-shadow: 0 0 0 3px rgba(88, 17, 26, 0.15);
+}
+
+.btn-submit {
+    background-color: #58111a;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.btn-submit:hover {
+    background-color: #3f0c13;
+}
+
+/* Подвал */
+.footer {
+    grid-area: footer;
+    text-align: center;
+    padding: 20px;
+    color: #73595e;
+    font-size: 0.9rem;
+}
+
+
+/* ==========================================================================
+   2. ПЛАНШЕТЫ (min-width: 768px)
+   ========================================================================== */
+@media (min-width: 768px) {
+    .page-grid {
+        padding: 30px;
+        gap: 35px;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .hamburger {
+        display: none; /* скрываем гамбургер на планшетах/десктопах */
+    }
+
+    .nav-links {
+        display: flex; /* показываем полноценное меню */
+    }
+
+    .hero {
+        padding: 60px 40px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    /* 2 колонки карточек на планшете */
+    .styles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* ==========================================================================
+   3. ДЕСКТОП (min-width: 1200px)
+   ========================================================================== */
+@media (min-width: 1200px) {
+    .hero-title {
+        font-size: 2.6rem;
+    }
+
+    /* 3 колонки карточек на широком экране */
+    .styles-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .contact {
+        max-width: 650px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
