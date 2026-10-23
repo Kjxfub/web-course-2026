@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorKSShop | Task Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Скрипт подключается с defer согласно требованиям -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="todo-app">
+        <!-- Шапка приложения -->
+        <header class="app-header">
+            <h1 class="app-title">WorKSShop Tasks</h1>
+            <p class="app-subtitle">Планирование творческих проектов и идей</p>
+        </header>
+
+        <!-- Форма добавления задачи -->
+        <div class="input-section">
+            <form id="todo-form" class="todo-form">
+                <input 
+                    type="text" 
+                    id="todo-input" 
+                    class="todo-input" 
+                    placeholder="Например: Завершить эскиз с леопардом..." 
+                    autocomplete="off"
+                >
+                <button type="submit" class="btn btn-add">Добавить</button>
+            </form>
+            <div id="error-message" class="error-message">Пожалуйста, введите текст задачи!</div>
+        </div>
+
+        <!-- Счётчики выполненных и оставшихся задач -->
+        <div class="stats-bar">
+            <span id="stats-active">Осталось: 0</span>
+            <span id="stats-completed">Выполнено: 0</span>
+        </div>
+
+        <!-- Кнопки фильтрации -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Все</button>
+            <button class="filter-btn" data-filter="active">Активные</button>
+            <button class="filter-btn" data-filter="completed">Завершённые</button>
+        </div>
+
+        <!-- Список задач (генерируется динамически через JavaScript) -->
+        <ul id="todo-list" class="todo-list"></ul>
+    </div>
+
+</body>
+</html>
