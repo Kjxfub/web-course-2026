@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#150e0d">
+  <meta name="description" content="Chalk & Snake — бильярдная змейка. Лабораторная работа №6, Canvas и чистый JavaScript.">
+  <title>Chalk & Snake — Billiards Arcade</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="room-glow" aria-hidden="true"></div>
+  <div class="site-wrap">
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-badge" aria-hidden="true"><span class="brand-eight">8</span></div>
+        <div>
+          <div class="brand-wordmark">CHALK <em>&</em> SNAKE</div>
+          <div class="brand-kicker">THE BILLIARDS ARCADE</div>
+        </div>
+      </div>
+      <div class="header-center">ЛАБОРАТОРНАЯ № 06 <span class="header-divider"></span> CANVAS EXPERIMENT</div>
+      <div class="header-right"><span class="status-dot" aria-hidden="true"></span> TABLE OPEN <span class="header-number">/ 001</span></div>
+    </header>
+
+    <main class="game-layout">
+      <aside class="left-panel">
+        <div class="side-eyebrow"><span class="small-gold-line"></span> SCOREBOARD</div>
+        <div class="side-intro">Ваша партия<br><i>начинается здесь.</i></div>
+        <section class="score-card" aria-label="Счёт игры">
+          <div class="score-label">ТЕКУЩИЙ СЧЁТ <span class="score-label-dot"></span></div>
+          <div class="score-number" id="score" aria-live="polite">00</div>
+          <div class="score-line"></div>
+          <div class="score-bottom"><span>ЛУЧШИЙ РЕЗУЛЬТАТ</span><strong id="bestScore">00</strong></div>
+        </section>
+        <section class="next-ball-card" aria-label="Следующий шар">
+          <div class="card-title">НА СТОЛЕ <span>01 / 15</span></div>
+          <div class="next-ball-row">
+            <div class="ball-preview" id="ballPreview" aria-hidden="true"><span id="ballPreviewNumber">1</span></div>
+            <div><div class="next-ball-name" id="ballName">Жёлтый</div><div class="next-ball-desc">СЛЕДУЮЩИЙ ШАР</div></div>
+          </div>
+          <div class="ball-tray" id="ballTray" aria-label="Собранные шары"></div>
+        </section>
+        <section class="controls-card">
+          <div class="card-title">УПРАВЛЕНИЕ <span>01 — 04</span></div>
+          <div class="key-row" aria-hidden="true"><kbd>↑</kbd></div>
+          <div class="key-row" aria-hidden="true"><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd></div>
+          <p>Стрелки — направление<br><span>Пробел — пауза / продолжить</span></p>
+          <button class="text-control" id="gridButton" type="button" aria-pressed="true"><span class="mini-icon">⊞</span> Скрыть сетку <span>↗</span></button>
+          <button class="text-control" id="soundButton" type="button" aria-pressed="false"><span class="mini-icon">♫</span> Включить звук <span>↗</span></button>
+        </section>
+      </aside>
+
+      <section class="center-stage" aria-label="Игровое поле">
+        <div class="stage-above"><span><span class="stage-led"></span> PLAYER ONE</span><span>THE GREEN FELT COLLECTION <i>•</i> 2026</span></div>
+        <div class="pool-scene">
+          <div class="hanging-lamp" aria-hidden="true">
+            <div class="lamp-cord"></div><div class="lamp-fixture"></div><div class="lamp-dome"></div><div class="lamp-light"></div>
+          </div>
+          <div class="cue-stick" aria-hidden="true"></div>
+          <div class="table-rim">
+            <div class="metal-trim">
+              <div class="wood-inlay">
+                <div class="felt-frame">
+                  <canvas id="gameCanvas" width="600" height="600" aria-label="Змейка на бильярдном столе: управляйте стрелками, собирайте шары и избегайте столкновений">Ваш браузер не поддерживает Canvas.</canvas>
+                  <div class="game-overlay visible" id="gameOverlay" aria-live="polite">
+                    <div class="overlay-emblem" aria-hidden="true">8</div>
+                    <div class="overlay-kicker" id="overlayKicker">WELCOME TO THE TABLE</div>
+                    <h1 id="overlayTitle">Ваша<br><em>партия.</em></h1>
+                    <p class="overlay-copy" id="overlayText">Собирайте бильярдные шары, растите и не касайтесь бортов или собственного хвоста.</p>
+                    <button class="main-button" id="startButton" type="button"><span id="startButtonText">НАЧАТЬ ИГРУ</span><span class="main-button-arrow">↗</span></button>
+                    <span class="overlay-help" id="overlayHelp">СТРЕЛКИ — ДВИЖЕНИЕ · ПРОБЕЛ — ПАУЗА</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pocket pocket-tl" aria-hidden="true"></div>
+            <div class="pocket pocket-tm" aria-hidden="true"></div>
+            <div class="pocket pocket-tr" aria-hidden="true"></div>
+            <div class="pocket pocket-bl" aria-hidden="true"></div>
+            <div class="pocket pocket-bm" aria-hidden="true"></div>
+            <div class="pocket pocket-br" aria-hidden="true"></div>
+            <span class="rail-diamond diamond-top-1" aria-hidden="true"></span><span class="rail-diamond diamond-top-2" aria-hidden="true"></span><span class="rail-diamond diamond-top-3" aria-hidden="true"></span><span class="rail-diamond diamond-top-4" aria-hidden="true"></span>
+            <span class="rail-diamond diamond-bottom-1" aria-hidden="true"></span><span class="rail-diamond diamond-bottom-2" aria-hidden="true"></span><span class="rail-diamond diamond-bottom-3" aria-hidden="true"></span><span class="rail-diamond diamond-bottom-4" aria-hidden="true"></span>
+            <span class="rail-diamond diamond-left-1" aria-hidden="true"></span><span class="rail-diamond diamond-left-2" aria-hidden="true"></span><span class="rail-diamond diamond-right-1" aria-hidden="true"></span><span class="rail-diamond diamond-right-2" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="stage-below"><span>HANDCRAFTED IN CANVAS <b>✦</b> PURE JAVASCRIPT</span><span>20 × 20 GRID <b>·</b> 600 PX</span></div>
+        <div class="mobile-controls" aria-label="Сенсорное управление">
+          <button type="button" data-direction="up" aria-label="Вверх">↑</button>
+          <div><button type="button" data-direction="left" aria-label="Влево">←</button><button type="button" data-direction="down" aria-label="Вниз">↓</button><button type="button" data-direction="right" aria-label="Вправо">→</button></div>
+        </div>
+      </section>
+
+      <aside class="right-panel">
+        <div class="right-accent"></div>
+        <div class="right-eyebrow">THE HOUSE RULES</div>
+        <h2>Правила<br><i>игры.</i></h2>
+        <div class="rule-item"><span>01</span><div><strong>Двигайтесь</strong><p>Управляйте змеёй стрелками. Развернуться на 180° нельзя.</p></div></div>
+        <div class="rule-item"><span>02</span><div><strong>Собирайте шары</strong><p>Каждый шар удлиняет змею и приносит одно очко.</p></div></div>
+        <div class="rule-item"><span>03</span><div><strong>Берегите голову</strong><p>Касание борта или собственного тела завершает партию.</p></div></div>
+        <div class="small-card"><div class="small-card-title">A LITTLE DETAIL</div><div class="chalk-render" aria-hidden="true"><div class="chalk-top"></div><div class="chalk-front"></div></div><p>Настоящий бильярдный мел на кончике хвоста. Да, мы серьёзно.</p></div>
+        <div class="signature">GOOD LUCK <span>↗</span></div>
+      </aside>
+    </main>
+    <footer class="site-footer"><span>© 2026 CHALK & SNAKE</span><span>BUILT FOR THE LOVE OF THE GAME</span><span>NO FRAMEWORKS. JUST THE GAME.</span></footer>
+  </div>
+</body>
+</html>
