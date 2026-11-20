@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Лабораторная №4 — Быки и коровы</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game">
+    <h1>Быки и коровы</h1>
+    <p class="rules">
+      Компьютер загадал 4 неповторяющиеся цифры (от 0 до 9). Введите своё число из 4 разных цифр.
+    </p>
+
+    <form id="guess-form" class="controls" novalidate>
+      <label for="guess-input" class="sr-only">Ваша попытка</label>
+      <input
+        id="guess-input"
+        type="text"
+        inputmode="numeric"
+        maxlength="4"
+        placeholder="Например, 1234"
+        autocomplete="off"
+      />
+      <button type="submit" id="check-btn">Проверить</button>
+      <button type="button" id="new-game-btn" class="secondary">Новая игра</button>
+    </form>
+
+    <div class="meta">
+      <span>Попыток: <strong id="attempts-count">0</strong></span>
+    </div>
+
+    <p id="message" class="message" role="live" aria-live="polite"></p>
+
+    <section class="history-section">
+      <h2>История попыток</h2>
+      <ul id="history-list" class="history-list"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
