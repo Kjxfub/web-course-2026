@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Лабораторная №5 — Jazz Vinyl Simon</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="club-stage">
+    <header class="club-header">
+      <p class="club-tag">VELVET JAZZ LOUNGE // VINYL EDITION</p>
+      <h1>СИМОН ГОВОРИТ</h1>
+      <p id="status-line" class="status-line" aria-live="polite">
+        Нажмите «Старт», чтобы поставить пластинку
+      </p>
+    </header>
+
+    <section class="hud">
+      <div class="hud-pill">
+        <span>Раунд / Уровень</span>
+        <strong id="round-display">0</strong>
+      </div>
+      <div class="hud-pill">
+        <span>Шаг</span>
+        <strong id="step-display">0 / 0</strong>
+      </div>
+      <div class="hud-actions">
+        <button id="start-btn" type="button" class="btn-primary">Старт</button>
+        <button id="sound-btn" type="button" class="btn-ghost" aria-pressed="true">
+          Звук: вкл
+        </button>
+      </div>
+    </section>
+
+    <section class="vinyl-deck" aria-label="Игровое поле пластинки">
+      <div id="notes-layer" class="notes-layer" aria-hidden="true"></div>
+      <div class="tonearm" aria-hidden="true"></div>
+
+      <div class="vinyl-disc" role="group" aria-label="Четыре сектора пластинки">
+        <button
+          type="button"
+          class="pad pad-0"
+          data-pad="0"
+          aria-label="Сектор 1 — Пики, нота До"
+          disabled
+        >
+          <span class="pad-suit">♠</span>
+          <span class="pad-note">C4</span>
+        </button>
+
+        <button
+          type="button"
+          class="pad pad-1"
+          data-pad="1"
+          aria-label="Сектор 2 — Червы, нота Ми"
+          disabled
+        >
+          <span class="pad-suit">♥</span>
+          <span class="pad-note">E4</span>
+        </button>
+
+        <button
+          type="button"
+          class="pad pad-2"
+          data-pad="2"
+          aria-label="Сектор 3 — Бубны, нота Соль"
+          disabled
+        >
+          <span class="pad-suit">♦</span>
+          <span class="pad-note">G4</span>
+        </button>
+
+        <button
+          type="button"
+          class="pad pad-3"
+          data-pad="3"
+          aria-label="Сектор 4 — Трефы, нота Си"
+          disabled
+        >
+          <span class="pad-suit">♣</span>
+          <span class="pad-note">B4</span>
+        </button>
+
+        <div class="vinyl-label" aria-hidden="true">
+          <span class="label-title">NOCTURNE</span>
+          <span class="label-sub">33⅓ RPM</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

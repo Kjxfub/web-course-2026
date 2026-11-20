@@ -1,0 +1,409 @@
+:root {
+  --bg-espresso: #120b09;
+  --bg-mahogany: #21100d;
+  --leather-dark: #1b0e0b;
+  --leather-mid: #2c1611;
+  --crimson: #b81d24;
+  --crimson-glow: rgba(225, 45, 55, 0.55);
+  --gold: #e6b85c;
+  --gold-soft: rgba(230, 184, 92, 0.28);
+  --cream: #f4e8d1;
+  --muted: #b89f82;
+  --pad-0: #4a151b;
+  --pad-1: #6b1d24;
+  --pad-2: #7a4919;
+  --pad-3: #243b36;
+  --pad-0-hi: #e0313b;
+  --pad-1-hi: #ff5964;
+  --pad-2-hi: #ffd166;
+  --pad-3-hi: #52b788;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  font-family: "Georgia", "Times New Roman", serif;
+  color: var(--cream);
+  background:
+    radial-gradient(circle at 20% 15%, rgba(230, 184, 92, 0.14), transparent 36%),
+    radial-gradient(circle at 82% 25%, rgba(184, 29, 36, 0.22), transparent 42%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.012) 0px,
+      rgba(255, 255, 255, 0.012) 2px,
+      transparent 2px,
+      transparent 8px
+    ),
+    linear-gradient(165deg, var(--bg-mahogany), var(--bg-espresso));
+}
+
+.club-stage {
+  width: 100%;
+  max-width: 560px;
+  padding: 28px 26px 34px;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 248, 235, 0.04), transparent 24%),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(0, 0, 0, 0.14) 0px,
+      rgba(0, 0, 0, 0.14) 4px,
+      rgba(255, 255, 255, 0.015) 4px,
+      rgba(255, 255, 255, 0.015) 8px
+    ),
+    var(--leather-dark);
+  border: 1px solid rgba(230, 184, 92, 0.35);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.72),
+    inset 0 0 0 1px rgba(184, 29, 36, 0.35),
+    inset 0 1px 0 rgba(244, 232, 209, 0.12);
+}
+
+.club-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.club-tag {
+  margin: 0 0 6px;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.7rem, 4vw, 2.25rem);
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.65);
+}
+
+.status-line {
+  margin: 12px auto 0;
+  min-height: 28px;
+  padding: 6px 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  color: var(--cream);
+  background: rgba(184, 29, 36, 0.18);
+  border: 1px solid rgba(230, 184, 92, 0.25);
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.status-line.is-repeat {
+  background: rgba(230, 184, 92, 0.18);
+  border-color: var(--gold);
+  color: #ffe7b3;
+}
+
+.status-line.is-error {
+  background: rgba(184, 29, 36, 0.38);
+  border-color: #ff6b6b;
+  color: #ffd6d6;
+}
+
+.hud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--leather-mid);
+  border: 1px solid rgba(230, 184, 92, 0.2);
+}
+
+.hud-pill {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hud-pill span {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.hud-pill strong {
+  font-size: 1.25rem;
+  color: var(--gold);
+}
+
+.hud-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: 9px;
+  transition: transform 0.12s ease, box-shadow 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: linear-gradient(180deg, #d1262e, var(--crimson));
+  border: 1px solid rgba(230, 184, 92, 0.55);
+  box-shadow: 0 6px 18px var(--crimson-glow);
+}
+
+.btn-primary:hover:not(:disabled) {
+  box-shadow: 0 8px 24px rgba(230, 184, 92, 0.35), 0 4px 16px var(--crimson-glow);
+}
+
+.btn-ghost {
+  padding: 10px 12px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(230, 184, 92, 0.25);
+}
+
+.btn-ghost[aria-pressed="true"] {
+  color: var(--gold);
+  border-color: rgba(230, 184, 92, 0.55);
+}
+
+/* Пластинка и парящие ноты */
+.vinyl-deck {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 10px 0 4px;
+}
+
+.notes-layer {
+  position: absolute;
+  inset: -16px 0 0;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 6;
+}
+
+.floating-note {
+  position: absolute;
+  bottom: 42%;
+  font-size: 1.45rem;
+  color: var(--gold);
+  text-shadow: 0 0 12px rgba(230, 184, 92, 0.75);
+  animation: note-float 1.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes note-float {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.75) rotate(-8deg);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-96px) scale(1.2) rotate(14deg);
+  }
+}
+
+.vinyl-disc {
+  position: relative;
+  width: min(350px, 84vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  padding: 16px;
+  background:
+    radial-gradient(circle, transparent 42%, rgba(255, 255, 255, 0.05) 43%, transparent 44%, rgba(255, 255, 255, 0.04) 58%, transparent 59%),
+    radial-gradient(circle, #090605 68%, #2a1812 100%);
+  border: 3px solid rgba(230, 184, 92, 0.45);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.8),
+    0 0 0 6px rgba(18, 11, 9, 0.9);
+  transition: transform 0.6s ease;
+}
+
+.vinyl-disc.is-spinning {
+  animation: vinyl-grooves 7s linear infinite;
+}
+
+@keyframes vinyl-grooves {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.pad {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: 1px solid rgba(230, 184, 92, 0.25);
+  color: var(--cream);
+  opacity: 0.88;
+}
+
+.pad:disabled {
+  cursor: default;
+}
+
+.pad:not(:disabled):hover {
+  opacity: 1;
+  border-color: rgba(230, 184, 92, 0.7);
+}
+
+.pad-suit {
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.pad-note {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  opacity: 0.85;
+}
+
+.pad-0 {
+  background: var(--pad-0);
+  border-radius: 100% 10px 10px 10px;
+}
+
+.pad-1 {
+  background: var(--pad-1);
+  border-radius: 10px 100% 10px 10px;
+}
+
+.pad-2 {
+  background: var(--pad-2);
+  border-radius: 10px 10px 10px 100%;
+}
+
+.pad-3 {
+  background: var(--pad-3);
+  border-radius: 10px 10px 100% 10px;
+}
+
+.pad-0.active {
+  background: var(--pad-0-hi);
+  opacity: 1;
+  box-shadow: 0 0 24px rgba(224, 49, 59, 0.85), inset 0 0 14px rgba(255, 255, 255, 0.35);
+}
+
+.pad-1.active {
+  background: var(--pad-1-hi);
+  opacity: 1;
+  box-shadow: 0 0 24px rgba(255, 89, 100, 0.85), inset 0 0 14px rgba(255, 255, 255, 0.35);
+}
+
+.pad-2.active {
+  background: var(--pad-2-hi);
+  color: #1c1108;
+  opacity: 1;
+  box-shadow: 0 0 24px rgba(255, 209, 102, 0.85), inset 0 0 14px rgba(255, 255, 255, 0.45);
+}
+
+.pad-3.active {
+  background: var(--pad-3-hi);
+  color: #091811;
+  opacity: 1;
+  box-shadow: 0 0 24px rgba(82, 183, 136, 0.85), inset 0 0 14px rgba(255, 255, 255, 0.4);
+}
+
+/* «Яблоко» пластинки по центру */
+.vinyl-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 35% 30%, #d42b33, #7a1116 78%);
+  border: 3px solid var(--gold);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.75);
+  pointer-events: none;
+  z-index: 4;
+}
+
+.label-title {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--cream);
+}
+
+.label-sub {
+  margin-top: 2px;
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+
+/* Декоративный звукосниматель */
+.tonearm {
+  position: absolute;
+  top: 6px;
+  right: 12%;
+  width: 92px;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #b89f82, var(--gold));
+  transform-origin: 86px 3px;
+  transform: rotate(-28deg);
+  transition: transform 0.45s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.tonearm::after {
+  content: "";
+  position: absolute;
+  right: -8px;
+  top: -7px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--gold), #6b4e1e);
+  border: 1px solid rgba(255, 248, 235, 0.4);
+}
+
+.vinyl-deck.is-playing .tonearm {
+  transform: rotate(12deg);
+}
