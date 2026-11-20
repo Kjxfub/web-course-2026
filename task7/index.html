@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#110d10">
+  <meta name="description" content="NOCTURNE — концептуальная лента вечерних заведений Минска. Демонстрационный проект на JSONPlaceholder с бесконечным скроллом.">
+  <title>NOCTURNE — город после заката</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="wordmark" aria-label="NOCTURNE — на главную">N<span class="wordmark-sun">✳</span>CTURNE<span class="wordmark-period">.</span></a>
+      <nav class="main-nav" aria-label="Навигация">
+        <a href="#feed" class="nav-active">Коллекция</a>
+        <a href="#about">О проекте</a>
+      </nav>
+      <a class="header-city" href="#feed"><span class="online-dot"></span> MINSK <span class="header-separator">/</span> BY</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <div class="tiny-label"><span class="tiny-line"></span> THE CITY AFTER DARK <span class="tiny-star">✦</span> ISSUE 001</div>
+        <h1 id="heroTitle">У города<br>есть <em>вторая</em><br>жизнь<span class="red-dot">.</span></h1>
+        <p class="hero-subtitle">Авторские бары, камерные лаунджи, кальянные и бильярдные. Места, в которых ночь становится историей.</p>
+        <div class="hero-actions">
+          <a href="#feed" class="hero-cta">Исследовать места <span aria-hidden="true">↗</span></a>
+          <span class="hero-caption">Минск · Ночная коллекция</span>
+        </div>
+        <div class="hero-counter"><span>01</span><span class="hero-counter-slash">/</span><span>10</span> <small>ЛЮБИМЫХ АТМОСФЕР</small></div>
+      </div>
+      <div class="hero-art" aria-label="Атмосфера ночного лаундж-бара">
+        <div class="hero-main-image"><img src="assets/jazz.webp" alt="Иллюстрация ночного джазового лаундж-бара" fetchpriority="high"></div>
+        <div class="hero-small-image"><img src="assets/hookah.webp" alt="Кальян в красном дыму"></div>
+        <div class="hero-art-stamp"><span>GOOD NIGHTS</span><span class="stamp-star">✳</span><span>START HERE</span></div>
+        <div class="hero-art-index">53°54' N <span>—</span> 27°34' E</div>
+        <div class="hero-deco-circle" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true"><div class="ticker-track">BARS <span>✳</span> LOUNGES <span>✳</span> HOOKAH <span>✳</span> BILLIARDS <span>✳</span> RESTAURANTS <span>✳</span> MINSK AFTER DARK <span>✳</span> BARS <span>✳</span> LOUNGES <span>✳</span> HOOKAH <span>✳</span> BILLIARDS <span>✳</span> RESTAURANTS <span>✳</span> MINSK AFTER DARK <span>✳</span></div></div>
+
+    <section class="intro container" id="about" aria-label="О коллекции">
+      <div class="intro-label">[ THE NIGHT DIRECTORY ]</div>
+      <p>Не просто адреса. <span>Атмосфера, свет, музыка и характер.</span> Коллекция вымышленных заведений, вдохновлённая ночным Минском.</p>
+      <div class="intro-seal" aria-hidden="true"><span>✳</span><small>EST.<br>2026</small></div>
+    </section>
+
+    <section class="feed-section container" id="feed" aria-labelledby="feedTitle">
+      <div class="section-head">
+        <div><div class="section-kicker"><span class="tiny-line"></span> YOUR NIGHT, YOUR CHOICE</div><h2 id="feedTitle">Ночная <em>лента</em><span class="red-dot">.</span></h2></div>
+        <div class="section-head-right"><span>01 — 100</span><p>Истории мест,<br>которые хочется открыть.</p></div>
+      </div>
+
+      <div class="feed-toolbar">
+        <div class="category-filters" role="group" aria-label="Тип заведения">
+          <button type="button" class="filter-chip is-active" data-category="all" aria-pressed="true">Все места <span>↗</span></button>
+          <button type="button" class="filter-chip" data-category="bar" aria-pressed="false">Бары</button>
+          <button type="button" class="filter-chip" data-category="lounge" aria-pressed="false">Лаунджи</button>
+          <button type="button" class="filter-chip" data-category="hookah" aria-pressed="false">Кальянные</button>
+          <button type="button" class="filter-chip" data-category="billiards" aria-pressed="false">Бильярдные</button>
+          <button type="button" class="filter-chip" data-category="restaurant" aria-pressed="false">Рестораны</button>
+        </div>
+        <label class="search-field" for="searchInput">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
+          <input id="searchInput" type="search" placeholder="Поиск по заголовку поста..." autocomplete="off" aria-label="Поиск по заголовку загруженных постов">
+          <span class="search-shortcut" aria-hidden="true">⌕</span>
+        </label>
+      </div>
+
+      <div class="feed-statusline"><span><span class="status-live"></span><strong id="loadedCount">0</strong> / 100 ПОСТОВ ЗАГРУЖЕНО</span><span id="filterStatus">ПОКАЗАНЫ ВСЕ ЗАГРУЖЕННЫЕ</span></div>
+
+      <div id="errorState" class="error-state" role="alert" hidden>
+        <div class="error-symbol">!</div><div><strong>Связь с городом потеряна</strong><p id="errorMessage">Не получилось загрузить публикации. Проверьте подключение к интернету.</p></div>
+        <button type="button" id="retryButton">Повторить <span>↗</span></button>
+      </div>
+
+      <div class="posts-grid" id="postsGrid" aria-live="polite" aria-relevant="additions"></div>
+
+      <div class="empty-state" id="emptyState" hidden><span>✳</span><h3>Пока ничего не нашли</h3><p>Среди загруженных публикаций нет совпадений. Попробуйте другой запрос или категорию.</p></div>
+
+      <div id="loadingState" class="loading-state" role="status" aria-live="polite" hidden><span class="loading-spinner" aria-hidden="true"></span><div><span>LOADING THE NIGHT</span><strong>Загрузка публикаций...</strong></div></div>
+      <div id="scrollSentinel" class="scroll-sentinel" aria-hidden="true"></div>
+      <div id="endState" class="end-state" hidden><span class="end-ornament">✳</span><div><strong>Больше постов нет</strong><p>Все 100 историй уже здесь. Ночь продолжается.</p></div><span class="end-ornament">✳</span></div>
+      <p class="feed-hint" id="feedHint">Листайте вниз — новые публикации появятся автоматически.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid"><div><a href="#top" class="footer-logo">N<span>✳</span>CTURNE.</a><p>Discover your kind of night.</p></div><div><span class="footer-eyebrow">ABOUT THIS PROJECT</span><p>Учебная демонстрация. Названия заведений, описания и оценки вымышлены. Заголовки, тексты и ID публикаций загружаются через JSONPlaceholder.</p></div><div class="footer-right"><span class="footer-eyebrow">DATA SOURCE</span><a href="https://jsonplaceholder.typicode.com/posts" target="_blank" rel="noopener noreferrer">JSONPlaceholder ↗</a><span>HTML / CSS / VANILLA JS</span></div></div>
+    <div class="container footer-bottom"><span>© 2026 NOCTURNE — CONCEPT</span><span>MADE FOR THE NIGHT ✳</span></div>
+  </footer>
+</body>
+</html>
