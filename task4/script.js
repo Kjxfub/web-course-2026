@@ -1,13 +1,13 @@
-// --- 1. Состояние приложения ---
+
 const state = {
   secret: "",
-  attempts: [], // элементы вида { guess: "1234", bulls: 1, cows: 2 }
+  attempts: [], 
   isGameOver: false,
   message: "",
-  messageType: "" // "" | "error" | "win"
+  messageType: "" 
 };
 
-// --- 2. Ссылки на элементы DOM ---
+
 const formEl = document.getElementById("guess-form");
 const inputEl = document.getElementById("guess-input");
 const checkBtnEl = document.getElementById("check-btn");
@@ -16,15 +16,11 @@ const attemptsCountEl = document.getElementById("attempts-count");
 const messageEl = document.getElementById("message");
 const historyListEl = document.getElementById("history-list");
 
-// --- 3. Обязательные отдельные функции логики ---
 
-/**
- * Генерирует строку из 4 неповторяющихся цифр от '0' до '9'.
- */
+
 function generateSecretNumber() {
   const digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-  // Тасование Фишера — Йетса
   for (let i = digits.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [digits[i], digits[j]] = [digits[j], digits[i]];
@@ -33,13 +29,7 @@ function generateSecretNumber() {
   return digits.slice(0, 4).join("");
 }
 
-/**
- * Проверяет ввод игрока:
- * - ровно 4 символа
- * - только цифры (0-9)
- * - все 4 цифры различны
- * Возвращает { valid: true, value: "1234" } или { valid: false, error: "..." }.
- */
+
 function validateGuess(rawInput) {
   const value = rawInput.trim();
 
@@ -61,10 +51,7 @@ function validateGuess(rawInput) {
   return { valid: true, value };
 }
 
-/**
- * Считает количество быков и коров для загаданного числа и попытки.
- * Предполагается, что обе строки состоят из 4 неповторяющихся цифр.
- */
+
 function countBullsAndCows(secret, guess) {
   let bulls = 0;
   let cows = 0;
@@ -81,7 +68,6 @@ function countBullsAndCows(secret, guess) {
   return { bulls, cows };
 }
 
-// --- 4. Вспомогательные функции форматирования и рендера ---
 
 function pluralize(count, one, few, many) {
   const mod10 = count % 10;
@@ -97,9 +83,7 @@ function formatAttemptLine(attempt) {
   return `${attempt.guess} → ${attempt.bulls} ${bullWord}, ${attempt.cows} ${cowWord}`;
 }
 
-/**
- * Полностью синхронизирует интерфейс с текущим объектом state.
- */
+ //синхронизируем интерфейс с текущим объектом state и перерисовываем
 function render() {
   attemptsCountEl.textContent = String(state.attempts.length);
 
@@ -112,7 +96,6 @@ function render() {
   inputEl.disabled = state.isGameOver;
   checkBtnEl.disabled = state.isGameOver;
 
-  // Перерисовываем историю строго из массива state.attempts
   historyListEl.innerHTML = "";
   for (const attempt of state.attempts) {
     const li = document.createElement("li");
@@ -121,7 +104,7 @@ function render() {
   }
 }
 
-// --- 5. Управление жизненным циклом игры и событиями ---
+
 
 function startNewGame() {
   state.secret = generateSecretNumber();
@@ -144,7 +127,6 @@ function handleGuessSubmit(event) {
 
   const validation = validateGuess(inputEl.value);
   if (!validation.valid) {
-    // Попытка НЕ засчитывается в state.attempts
     state.message = validation.error;
     state.messageType = "error";
     render();
@@ -175,5 +157,5 @@ function handleGuessSubmit(event) {
 formEl.addEventListener("submit", handleGuessSubmit);
 newGameBtnEl.addEventListener("click", startNewGame);
 
-// Запуск при загрузке страницы
+
 startNewGame();
